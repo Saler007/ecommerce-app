@@ -30,7 +30,7 @@ const Navbar = () => {
         </NavLink>
 
         <NavLink to="/collection" className="flex flex-col items-center gap-1 ">
-          <p>COLLECTION</p>
+          <p>PRODUCT  </p>
           <hr className="w-2/4 border-none h-[1.5px] bg-gray-700 hidden" />
         </NavLink>
 
@@ -50,7 +50,7 @@ const Navbar = () => {
           <img
             onClick={() => setShowSearch(true)}
             src={assets.searchIcon}
-            className="w-5 cursor-pointer"
+            className="w-6 cursor-pointer"
             alt="Search Icon"
           />
         </Link>
@@ -58,9 +58,8 @@ const Navbar = () => {
         <div className="group relative">
           <img
             onClick={() => (token ? null : navigate("/login"))}
-            className="w-5 cursor-pointer"
+            className="w-6 cursor-pointer"
             src={assets.userIcon}
-            className="w-5 cursor-pointer"
             alt="User Icon"
           />
           {/* Dropdown Menu */}
@@ -84,15 +83,15 @@ const Navbar = () => {
           )}
         </div>
         <Link to="/cart" className="relative">
-          <img src={assets.cartIcon} className="w-5 min-w-5" alt="Cart Icon" />
-          <p className="absolute right-1.25 bottom-1.25 w-4 text-center leading-4 bg-black text-white aspect-square rounded-full text-[8px]">
+          <img src={assets.cartIcon} className="w-6 min-w-5" alt="Cart Icon" />
+          <p className="absolute left-3 bottom-2.5 w-4 text-center leading-4 bg-black text-white aspect-square rounded-full text-[8px]">
             {getCartCount()}
           </p>
         </Link>
         <img
           onClick={() => setVisible(true)}
           src={assets.menuIcon}
-          className="w-5 cursor-pointer sm:hidden"
+          className="w-6 cursor-pointer sm:hidden"
           alt="Menu Icon"
         />
       </div>

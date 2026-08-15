@@ -25,6 +25,8 @@ import tiktokIcon from "./icons/tiktok.png";
 import starIcon from "./icons/star.png";
 import starNullIcon from "./icons/star_null.png";
 import deleteIcon from "./icons/bin.png";
+import abaIcon from "./payments/aba.jpg";
+import acledaIcon from "./payments/acleda.jpg";
 
 export const assets = {
   logo,
@@ -40,6 +42,8 @@ export const assets = {
   starIcon,
   starNullIcon,
   deleteIcon,
+  abaIcon,
+  acledaIcon
 };
 
 export const products = [

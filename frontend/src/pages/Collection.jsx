@@ -92,7 +92,7 @@ const Collection = () => {
     <div className=" flex flex-col sm:flex-row gap-1 sm:gap-10 pt-10 border-t border-gray-300">
       {/* Filter Options */}
       <div className="min-w-60">
-        <p className="my-2 text-xl flex items-center cursor-pointer gap-2">
+        <p className="my-2 text-l flex items-center cursor-pointer gap-2">
           FILTERS
         </p>
 
@@ -171,7 +171,7 @@ const Collection = () => {
       {/* Right Side */}
       <div className="flex-1">
         <div className="flex justify-between text-base sm:text-2xl mb-4">
-          <Title text1={"ALL"} text2={"COLLECTIONS"} />
+          <Title text1={"ALL"} text2={"PRODUCTS"} />
           {/* Product Sort */}
           <select className="border-2 border-gray-300 text-sm px-2">
             <option value="relevant"> Sort by: Relevant </option>
