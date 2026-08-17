@@ -10,9 +10,11 @@ const Footer = () => {
         </div>
 
         <div>
-          <p className="text-xl font-medium mb-5"> CONTACT</p>
-          <ul className="flex flex-col gap-4 text-gray-600">  
-            <li><h1>Tel: (+855) 086-833-936 </h1></li>
+          <p className="text-xl font-medium mb-5"> FOLLOW US </p>
+          <ul className="flex flex-col gap-4 text-gray-600">
+            <li>
+              <h1>Tel: (+855) 086-833-936 </h1>
+            </li>
             <ul className="flex flex-row gap-4">
               <li>
                 <a
@@ -24,6 +26,19 @@ const Footer = () => {
                     src={assets.fbIcon}
                     className="mb-4 w-8"
                     alt="Facebook"
+                  />
+                </a>
+              </li>
+                 <li>
+                <a
+                  href="https://www.youtube.com/@vbstore1716"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img
+                    src={assets.youtubeIcon}
+                    className="mb-4 w-8"
+                    alt="Youtube"
                   />
                 </a>
               </li>
@@ -63,7 +78,7 @@ const Footer = () => {
             <ul className="flex flex-row gap-4">
               <li>
                 <img
-                  src={assets.acledaIcon} 
+                  src={assets.acledaIcon}
                   className="mb-4 w-12"
                   alt="ACLEDA"
                 />

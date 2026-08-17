@@ -19,11 +19,11 @@ const Collection = () => {
     }
   };
 
-  const toggleSubCategory = () => {
+  const toggleSubCategory = (e) => {
     if (subCategory.includes(e.target.value)) {
-      setCategory((prev) => prev.filter((item) => item !== e.target.value));
+      setSubCategory((prev) => prev.filter((item) => item !== e.target.value));
     } else {
-      subCategory;
+      setSubCategory((prev) => [...prev, e.target.value]);
     }
   };
 
@@ -34,10 +34,6 @@ const Collection = () => {
       productsCopy = productsCopy.filter((item) =>
         item.name.toLowerCase().includes(search.toLowerCase()),
       );
-    }
-
-    if (category.lenght > 0) {
-      productsCopy = productsCopy.filter((item) => category.includes);
     }
 
     if (category.length > 0) {
@@ -52,52 +48,48 @@ const Collection = () => {
       );
     }
 
-    setFilterProducts(productsCopy);
+    setFilterProducts(sortProducts(productsCopy));
   };
 
-  const sortProduct = () => {
-    let fpCopy = filterProducts.slice();
+  // Pure sort helper: given a list, returns it sorted by the current sortType.
+  const sortProducts = (list) => {
+    const listCopy = list.slice();
 
     switch (sortType) {
       case "low-high":
-        setFilterProducts(fpCopy.sort((a, b) => a.price - b.price));
-        break;
-      case "high-high":
-        setFilterProducts(fpCopy.sort((a, b) => b.price - a.price));
-        break;
-
+        return listCopy.sort((a, b) => a.price - b.price);
+      case "high-low":
+        return listCopy.sort((a, b) => b.price - a.price);
       default:
-        applyFilter();
-        break;
+        return listCopy;
     }
   };
 
-  useEffect(() => {   
+  useEffect(() => {
     applyFilter();
   }, [category, subCategory, search, showSearch, products]);
 
-  useEffect(()=>{
-    sortProduct();
-  }, [sortType])
+  useEffect(() => {
+    setFilterProducts((prev) => sortProducts(prev));
+  }, [sortType]);
 
   useEffect(() => {
     setFilterProducts(products);
-  }, []);
-
-  useEffect(() => {
-    console.log(subCategory);
-  }, [category]);
+  }, [products]);
 
   return (
     <div className=" flex flex-col sm:flex-row gap-1 sm:gap-10 pt-10 border-t border-gray-300">
       {/* Filter Options */}
-      <div className="min-w-60">
-        <p className="my-2 text-l flex items-center cursor-pointer gap-2">
+      {/* <div className="min-w-60">
+        <p
+          onClick={() => setShowFilter(!showFilter)}
+          className="my-2 text-l flex items-center cursor-pointer gap-2"
+        >
           FILTERS
-        </p>
+        </p> */}
 
         {/* Category Filter */}
-        <div
+        {/* <div
           className={`border border-gray-300 pl-5 py-3 mt-6 ${showFilter ? "" : "hidden"} sm:block`}
         >
           <p className="mb-3 text-sm font-medium"> CATEGORIES</p>
@@ -130,9 +122,9 @@ const Collection = () => {
               Kids
             </p>
           </div>
-        </div>
+        </div> */}
         {/* SubCategory Filter */}
-        <div
+        {/* <div
           className={`border border-gray-300 pl-5 py-3 mt-6 ${showFilter ? "" : "hidden"} sm:block`}
         >
           <p className="mb-3 text-sm font-medium"> TYPE</p>
@@ -141,7 +133,7 @@ const Collection = () => {
               <input
                 className="w-3"
                 type="checkbox"
-                value={"Topwear "}
+                value={"Topwear"}
                 onChange={toggleSubCategory}
               />
               Topwear
@@ -166,19 +158,23 @@ const Collection = () => {
             </p>
           </div>
         </div>
-      </div>
+      </div> */}
 
       {/* Right Side */}
       <div className="flex-1">
         <div className="flex justify-between text-base sm:text-2xl mb-4">
           <Title text1={"ALL"} text2={"PRODUCTS"} />
           {/* Product Sort */}
-          <select className="border-2 border-gray-300 text-sm px-2">
+          <select
+            value={sortType}
+            onChange={(e) => setSortType(e.target.value)}
+            className="border-2 border-gray-300 text-sm px-2"
+          >
             <option value="relevant"> Sort by: Relevant </option>
             <option value="low-high"> Sort by: Low to High </option>
             <option value="high-low"> Sort by: High to Low </option>
           </select>
-        </div>
+        </div>  
 
         {/* Map Products */}
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 gap-y-6">

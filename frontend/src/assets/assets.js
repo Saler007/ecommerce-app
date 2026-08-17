@@ -19,6 +19,7 @@ import searchIcon from "./icons/search.png";
 import menuIcon from "./icons/menu.png";
 import backIcon from "./icons/back.png";
 import closeIcon from "./icons/close.png";
+import youtubeIcon from "./icons/youtube.png";
 import fbIcon from "./icons/fb.png";
 import telegramIcon from "./icons/telegram.png";
 import tiktokIcon from "./icons/tiktok.png";
@@ -39,11 +40,12 @@ export const assets = {
   fbIcon,
   telegramIcon,
   tiktokIcon,
+  youtubeIcon,
   starIcon,
   starNullIcon,
   deleteIcon,
   abaIcon,
-  acledaIcon
+  acledaIcon,
 };
 
 export const products = [
